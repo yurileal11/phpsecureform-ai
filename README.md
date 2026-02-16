@@ -1,7 +1,7 @@
 
 # PHPSecureForm AI
 
-Project: An ethical scanner for file uploads in PHP applications (PHP 8.4).
+An ethical scanner for file uploads in PHP applications (PHP 8.4).
 This repository is prepared for: https://github.com/yurileal11 (add remote and push after reviewing).
 
 Goal: Intercept HTTP requests/responses (Burp integration), forward them to a local analysis service that uses AI (OpenAI) and automated heuristics to identify problematic upload handling, CSRF, WAF indications, and suggest controlled tests up to potential RCE vectors — strictly for authorized testing in lab environments.
