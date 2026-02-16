@@ -38,13 +38,6 @@ Goal: Intercept HTTP requests/responses (Burp integration), forward them to a lo
 4. Load Burp extension (compile Java skeleton) and configure callback to `http://<BURP_CALLBACK_HOST>:8000/api/intercept`. The extension will respect `/api/control` toggles.
 5. To enable replaying of tests, set `ALLOW_REPLAY=true` in `.env` and restart containers. Use the Dashboard to trigger replays (enter token when prompted).
 
-## Prepare repo and push (example)
-```bash
-# create remote repo first on GitHub, then:
-./prepare_repo.sh
-git push -u origin main
-```
-
 ## Security & Notes
 - Replay of file uploads is intentionally manual to avoid dangerous automated uploads.
 - The Analyzer and Mutator are for research and should be audited before real use.
