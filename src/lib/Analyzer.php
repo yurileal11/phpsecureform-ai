@@ -41,7 +41,7 @@ class Analyzer {
 
         parse_str($body, $parsed);
         foreach ($parsed as $k=>$v) {
-            $out[$k] = ['type'=>is_array($v)?'array':'string','value'=>$v,'source'=>'form'];
+            $out[$k] = ['type' => is_array($v)?'array':'string','value'=>$v,'source'=>'form'];
         }
 
         if (!empty($req['query'])) {
@@ -77,7 +77,10 @@ class Analyzer {
                     }
                 }
             } else {
-                $files[] = ['field'=>'unknown','note'=>'multipart without boundary header; cannot parse'];
+                $files[] = [
+                    'field '=> 'unknown',
+                    'note' => 'multipart without boundary header; cannot parse'
+                ];
             }
         }
         return $files;
@@ -91,12 +94,19 @@ class Analyzer {
 
             foreach ($req['headers'] ?? [] as $hk=>$hv) {
                 if (stripos($hk, $n) !== false || stripos($hv, $n) !== false) {
-                    return ['found_in'=>'header','name'=>$n,'value'=>$hv];
+                    return [
+                        'found_in' => 'header',
+                        'name' => $n,
+                        'value' => $hv
+                    ];
                 }
             }
 
             if (stripos($body, $n) !== false) {
-                return ['found_in'=>'body','name'=>$n];
+                return [
+                    'found_in' => 'body',
+                    'name'=> $n
+                ];
             }
         }
         return null;
