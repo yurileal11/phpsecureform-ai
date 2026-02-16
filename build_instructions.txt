@@ -1,0 +1,8 @@
+Quick instructions to compile the Java extension (example using the Burp JAR):
+- Assume you have the burpsuite jar at /opt/burpsuite/burpsuite_pro.jar
+- Go to burp-extension/ and run:
+  javac -cp /opt/burpsuite/burpsuite_pro.jar PHPSecureFormExtension.java
+  jar cf PHPSecureFormExtension.jar PHPSecureFormExtension.class
+- In Burp: Extender -> Extensions -> Add -> Type: Java -> select PHPSecureFormExtension.jar
+- Configure the extension to point callback to: http://<BURP_CALLBACK_HOST>:8000/api/intercept
+Note: Montoya / Burp APIs evolve; adapt imports and code to match your Burp Suite version.

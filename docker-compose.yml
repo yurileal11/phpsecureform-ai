@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  php-fpm:
+    build:
+      context: .
+      dockerfile: docker/php.Dockerfile
+    volumes:
+      - ./src:/var/www/html:cached
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - PHSF_TOKEN=${PHSF_TOKEN:-dev-token}
+    networks:
+      - phpsf-net
+
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./src:/var/www/html:ro
+    depends_on:
+      - php-fpm
+    networks:
+      - phpsf-net
+
+networks:
+  phpsf-net:
+    driver: bridge

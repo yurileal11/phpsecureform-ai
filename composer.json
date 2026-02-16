@@ -1,0 +1,12 @@
+{
+  "name": "you/phpsecureform-ai",
+  "require": {
+    "guzzlehttp/guzzle": "^7.0",
+    "vlucas/phpdotenv": "^5.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "PHPSecureForm\\": "src/"
+    }
+  }
+}
