@@ -22,7 +22,7 @@ Goal: Intercept HTTP requests/responses (Burp integration), forward them to a lo
 - Burp extension skeleton for forwarding intercepted traffic to the local PoC service.
 - Instructions to compile/load the Burp extension, and how to run the system in Docker.
 
-## UX & Burp controls
+## Burp controls
 - Web UI: `public/dashboard.php` to list intercepted requests, view details and summaries, and trigger safe replays (replay is allowed only when `ALLOW_REPLAY=true`).
 - Control API: `api/control.php` exposes a small API so extensions can check whether the PoC is accepting intercepts and whether automated replay is allowed. The Burp extension skeleton includes a polling example for that endpoint and a Start/Stop button implementation comment.
 - Extension behavior: the Burp extension must forward intercepted traffic to `/api/intercept`. The extension should also periodically poll `/api/control` to respect the Start/Stop toggle and not forward traffic if disabled.
