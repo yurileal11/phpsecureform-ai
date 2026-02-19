@@ -2,7 +2,7 @@
 # PHPSecureForm AI
 
 Project: An ethical scanner for file uploads in PHP applications (PHP 8.4).
-This repository is prepared for: https://github.com/yurileal11 (add remote and push after reviewing).
+This repository is prepared for: https://github.com/yurilealdev (add remote and push after reviewing).
 
 Goal: Intercept HTTP requests/responses (Burp integration), forward them to a local analysis service that uses AI (OpenAI) and automated heuristics to identify problematic upload handling, CSRF, WAF indications, and suggest controlled tests up to potential RCE vectors — strictly for authorized testing in lab environments.
 
@@ -26,7 +26,7 @@ Goal: Intercept HTTP requests/responses (Burp integration), forward them to a lo
 - Web UI: `public/dashboard.php` to list intercepted requests, view details and summaries, and trigger safe replays (replay is allowed only when `ALLOW_REPLAY=true`).
 - Control API: `api/control.php` exposes a small API so extensions can check whether the PoC is accepting intercepts and whether automated replay is allowed. The Burp extension skeleton includes a polling example for that endpoint and a Start/Stop button implementation comment.
 - Extension behavior: the Burp extension must forward intercepted traffic to `/api/intercept`. The extension should also periodically poll `/api/control` to respect the Start/Stop toggle and not forward traffic if disabled.
-- Repo setup: included helper script `prepare_repo.sh` to initialize git, commit, and set remote to your GitHub: `https://github.com/yurileal11/phpsecureform-ai.git` (you must run and push with your credentials).
+- Repo setup: included helper script `prepare_repo.sh` to initialize git, commit, and set remote to your GitHub: `https://github.com/yurilealdev/phpsecureform-ai.git` (you must run and push with your credentials).
 
 ## How to run (quick)
 1. Copy `.env.example` -> `.env` and set values. Make sure `BURP_CALLBACK_HOST` matches your environment.
